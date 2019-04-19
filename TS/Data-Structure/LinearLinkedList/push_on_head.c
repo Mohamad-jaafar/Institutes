@@ -3,7 +3,7 @@
 #include "node.h"
 #endif
 /* Given a reference (pointer to pointer) to the head of a list and an int, inserts a new node on the front of the list. */
-void push_first_iter (struct Node **head, int val){
+void push_on_head (struct Node **head, int val){
 
 	/* 1. allocate node */
 	struct Node *new_node = (struct Node*) malloc (sizeof (struct Node));

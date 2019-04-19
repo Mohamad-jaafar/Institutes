@@ -3,7 +3,8 @@
 #include "node.h"
 #endif
 /* Given a reference (pointer to pointer) to the head of a list and an int, appends a new node at the end */
-void push_last_iter (struct Node **head, int val){
+void push_on_end (struct Node **head, int val){
+
 	/* 1. allocate node */
 	struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
 

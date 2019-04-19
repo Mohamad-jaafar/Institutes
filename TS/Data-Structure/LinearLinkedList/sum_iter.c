@@ -3,11 +3,12 @@
 #define HEADERFILE_H
 #include "node.h"
 #endif
-void printList (struct Node *n) {
+int sum_iter (struct Node *n) {
 
+	int sum = 0;
 	while (n != NULL) {
-		printf(" %d ", n -> data);
+		sum += n -> data;
 		n = n -> next;
 	}
-	printf("\n");
+	return sum;
 }

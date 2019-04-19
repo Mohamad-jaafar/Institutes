@@ -11,14 +11,11 @@ struct Node* getNode(int val) {
 }
 
 // function to insert a Node at required postion
-void push_on_position (struct Node** head, int pos, int val) {
+int push_on_position (struct Node** head, int pos, int val) {
 
 	// This condition to check whether the
 	// postion given is valid or not.
-	if (pos < 1 || pos > size + 1)
-		printf( "Invalid postion!");
-
-	else {
+	if (pos >= 1){
 
 		// Keep looping until the pos is zero
 		while (pos--) {
@@ -36,11 +33,14 @@ void push_on_position (struct Node** head, int pos, int val) {
 				// to the old Node to point to the new Node
 				*head = temp;
 			}
-			else
+			else {
 				// Assign double pointer variable to point to the
 				// pointer pointing to the address of next Node
 				head = &(*head)->next;
+				if (head == NULL){
+					break;
+				}
+			}
 		}
-		size++;
 	}
 }

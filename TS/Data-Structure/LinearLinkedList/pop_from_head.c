@@ -1,0 +1,26 @@
+#ifndef HEADERFILE_H
+#define HEADERFILE_H
+#include "node.h"
+#endif
+/* Function to remove the first node of the linked list */
+struct Node* pop_from_head(struct Node** head) {
+
+	if (*head == NULL)
+		return NULL;
+
+	if ((*head)->next == NULL) {
+		free (*head);
+		return NULL;
+	}
+
+	// Point to head
+	struct Node *first = *head;
+
+	// Let head point to the second node
+	(*head) = first -> next;
+
+	// Delete first node
+	free (first);
+
+	return (*head);
+}

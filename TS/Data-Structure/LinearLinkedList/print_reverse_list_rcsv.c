@@ -1,0 +1,24 @@
+#include <stdio.h>
+#ifndef HEADERFILE_H
+#define HEADERFILE_H
+#include "node.h"
+#endif
+
+#ifndef PRINTNODE_H
+#define PRINTNODE_H
+#include "print_node.h"
+#endif
+
+void print_reverse_list_rcsv (struct Node *head, int counter) {
+
+	if (head == NULL) {
+
+		printf("NULL");
+	} else {
+		print_reverse_list_rcsv (head -> next, ++counter);
+		print_reverse_node (head);
+
+		// The counter is just to print newline at the end
+		if (counter == 1) printf("\n");
+	} 
+}

@@ -3,7 +3,7 @@
 #include "node.h"
 #endif
 /* Function to remove the last node of the linked list */
-struct Node* pop_last_iter(struct Node* head) {
+struct Node* pop_from_end(struct Node* head) {
 
 	if (head == NULL)
 		return NULL;
