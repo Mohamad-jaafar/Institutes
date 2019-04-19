@@ -1,14 +1,20 @@
+/*
+ * Created on: Apr 11, 2019
+ * Author: Mohamad-Jaafar NEHME
+ * Email: mohamad.jaafar.nehme[att]gmail(.)com
+ */
+
 #include <stdio.h>
-#ifndef HEADERFILE_H
-#define HEADERFILE_H
+#ifndef NODE_H
+#define NODE_H
 #include "node.h"
 #endif
-struct Node * search_rcsv (struct Node *n, int data) {
+struct Node * search_rcsv (struct Node *head, int data) {
 
-	if (n == NULL || n -> data == data) {
-		return n;
+	if (head == NULL || head -> data == data) {
+		return head;
 	} else {
 
-		return search_rcsv (n -> next, data);
+		return search_rcsv (head -> next, data);
 	}
 }
