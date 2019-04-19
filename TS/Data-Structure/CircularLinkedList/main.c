@@ -1,115 +1,73 @@
 /*
- * main.c
- *
  * Created on: Apr 11, 2019
  * Author: Mohamad-Jaafar NEHME
+ * Email: mohamad.jaafar.nehme[att]gmail(.)com
  */
 
 #include "stdlib.h"
-#include <stdio.h>
 
-struct Node
-{
-	int data;
-	struct Node *next;
-};
+#include "push_on_head.c"
+#include "push_on_end.c"
+#include "push_on_position.c"
+#include "pop_from_head.c"
+#include "pop_from_end.c"
 
-// Size of linked list
-int size = 0;
+//#include "copy_iter.c"
+#include "length_iter.c"
+//#include "search_iter.c"
+//#include "sum_iter.c"
 
-// Defining Prototypes (Used functions for Circular Linked List)
-void printList (struct Node *);
-void push_first (struct Node **, int);
-struct Node* removeLastNode(struct Node *);
+//#include "copy_rcsv.c"
+//#include "length_rcsv.c"
+//#include "search_rcsv.c"
+//#include "sum_rcsv.c"
+
+#include "print_list_iter.c"
+//#include "print_list_rcsv.c"
+//#include "print_reverse_list_iter.c"
+//#include "print_reverse_list_rcsv.c"
 
 int main (){
 
 	struct Node* head = NULL;
 
-	push_first (&head, 5);
-	push_first (&head, 4);
-	push_first (&head, 3);
-	push_first (&head, 2);
-	push_first (&head, 1);
+	push_on_head (&head, 4);
+	push_on_head (&head, 3);
+	push_on_head (&head, 2);
+	push_on_head (&head, 1);
+	push_on_end (&head, 7);
+	push_on_end (&head, 8);
+	push_on_end (&head, 9);
+	push_on_end (&head, 10);
+	push_on_position (&head, 5, 5);
+	push_on_position (&head, 6, 6);
+	pop_from_head (&head);
+	pop_from_head (&head);
+	pop_from_end (&head);
+	pop_from_end (&head);
 
-	removeLastNode (head);
-	removeLastNode (head);
-	removeLastNode (head);
-	printList(head);
+	//int val = 6;
+	//struct Node *cursor;
+	//cursor = search_iter(head, val);
+	//if (cursor != NULL) printf ("FOUND %d!!\n", val); else printf ("NOT FOUND %d!!\n", val);
+	//cursor = search_rcsv(head, val);
+	//if (cursor != NULL) printf ("FOUND %d!!\n", val); else printf ("NOT FOUND %d!!\n", val);
+
+	printf ("HEAD:\n");
+	print_list_iter(head);
+	//print_list_rcsv(head);
+	//print_reverse_list_rcsv(head, 0);
+	//print_reverse_list_iter(head);
+	//printf ("\n");
+
+	//printf ("NEW HEAD:\n");
+	//struct Node* new_head = copy_rcsv (head);
+	//print_list_iter(new_head);
+
+	//printf ("%d\n", sum_iter(head));
+	//printf ("%d\n", sum_rcsv(head));
+	printf ("%d\n", length_iter(head));
+	//printf ("%d\n", length_rcsv(head));
+
 	return 0;
 }
-
-/* Given a reference (pointer to pointer) to the head of a list and an int, inserts a new node on the front of the list. */
-void push_first (struct Node **head, int val){
-
-	/* 1. allocate node */
-	struct Node *new_node = (struct Node*) malloc (sizeof (struct Node));
-
-	/* 2. put in the data */
-	new_node -> data = val;
-
-	/* 3. Make next of new node as head */
-	new_node -> next = *head;
-
-	/* 4. change prev of head node to new node */
-	if (*head != NULL) {
-
-		/* If linked list is not NULL then set the next of last node */
-		struct Node *temp = *head;
-
-		while (temp -> next != *head)
-			temp = temp -> next;
-
-		temp -> next = new_node;
-	}
-	else
-		new_node -> next = new_node; /*For the first node */
-
-	/* 5. move the head to point to the new node */
-	*head = new_node;
-
-	size++;
-}
-
-
-/* Function to remove the last node of the linked list */
-struct Node* removeLastNode(struct Node* head) {
-
-	if (head == NULL)
-		return NULL;
-
-	if (head->next == head) {
-		free (head);
-		return NULL;
-	}
-
-	// Find the second last node
-	struct Node *second_last = head;
-
-	while (second_last->next->next != head)
-		second_last = second_last->next;
-
-	// Delete last node
-	free (second_last->next);
-
-	// Change next of second last
-	second_last->next = head;
-
-	size --;
-	return head;
-}
-
-void printList (struct Node *head) {
-
-	struct Node *temp = head;
-
-	if (head != NULL){
-		do {
-			printf("%d ", temp -> data); 
-			temp = temp -> next;
-		} while (temp != head);
-	}
-	printf("\n");
-}
-
-
