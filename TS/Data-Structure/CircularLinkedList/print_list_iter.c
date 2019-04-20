@@ -16,6 +16,7 @@
 #endif
 
 void print_list_iter (struct Node *head) {
+
 	struct Node *cursor = head;
 
 	if (head != NULL){
@@ -24,5 +25,5 @@ void print_list_iter (struct Node *head) {
 			cursor = cursor -> next;
 		} while (cursor != head);
 	}
-	printf("NULL\n");
+	printf("\n");
 }

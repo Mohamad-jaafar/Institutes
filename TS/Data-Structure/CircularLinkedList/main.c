@@ -14,8 +14,8 @@
 
 //#include "copy_iter.c"
 #include "length_iter.c"
-//#include "search_iter.c"
-//#include "sum_iter.c"
+#include "search_iter.c"
+#include "sum_iter.c"
 
 //#include "copy_rcsv.c"
 //#include "length_rcsv.c"
@@ -46,10 +46,10 @@ int main (){
 	pop_from_end (&head);
 	pop_from_end (&head);
 
-	//int val = 6;
-	//struct Node *cursor;
-	//cursor = search_iter(head, val);
-	//if (cursor != NULL) printf ("FOUND %d!!\n", val); else printf ("NOT FOUND %d!!\n", val);
+	int val = 1;
+	struct Node *cursor;
+	cursor = search_iter(head, val);
+	if (cursor != NULL) printf ("FOUND %d!!\n", val); else printf ("NOT FOUND %d!!\n", val);
 	//cursor = search_rcsv(head, val);
 	//if (cursor != NULL) printf ("FOUND %d!!\n", val); else printf ("NOT FOUND %d!!\n", val);
 
@@ -64,7 +64,7 @@ int main (){
 	//struct Node* new_head = copy_rcsv (head);
 	//print_list_iter(new_head);
 
-	//printf ("%d\n", sum_iter(head));
+	printf ("%d\n", sum_iter(head));
 	//printf ("%d\n", sum_rcsv(head));
 	printf ("%d\n", length_iter(head));
 	//printf ("%d\n", length_rcsv(head));

@@ -11,12 +11,20 @@
 #endif
 struct Node * search_iter (struct Node *head, int val) {
 
-	struct Node *cursor = head;
+	if (head == NULL)
+		return NULL;
 
-	while (cursor != NULL) {
-		if (cursor -> data == val)
-			return cursor;
-		cursor = cursor -> next;
+	else if (head -> next == head) 
+		return head;
+
+	else{
+
+		struct Node * cursor = head -> next;
+		while (cursor != head) {
+			if (cursor -> data == val)
+				return cursor;
+			cursor = cursor -> next;
+		}
+		return NULL;
 	}
-	return NULL;
 }

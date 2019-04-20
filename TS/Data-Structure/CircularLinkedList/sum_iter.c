@@ -11,11 +11,20 @@
 #endif
 int sum_iter (struct Node *head) {
 
-	struct Node *cursor = head;
-	int sum = 0;
-	while (head != NULL) {
-		sum += head -> data;
-		head = head -> next;
+	if (head == NULL)
+		return 0;
+
+	else if (head -> next == head) 
+		return head -> data;
+
+	else{
+
+		int sum = head -> data;
+		struct Node * cursor = head -> next;
+		while (cursor != head) {
+			sum += (cursor -> data);
+			cursor = cursor -> next;
+		}
+		return sum;
 	}
-	return sum;
 }
