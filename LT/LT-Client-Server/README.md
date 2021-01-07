@@ -2,7 +2,7 @@
 
 Cours "Client-Server" pour la Licence Technique d'Informatique au Liban.
 
-Client-Server Course for the Technical License of Informatics at Lebanon.
+Client-Server Course for the Technical Bachelor of Information Systems in Lebanon.
 
 The repository contains Java Applications.
 
